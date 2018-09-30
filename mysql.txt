@@ -1,0 +1,51 @@
+﻿create DATABASE androiddb char set = utf8;
+
+create table user(
+userNo int primary key auto_increment,
+id varchar(15),
+pw varchar(15),
+state varchar(20),
+userName varchar(10),
+nickname varchar(10),
+birthday date,
+gender bit
+);
+create table post(
+postNo int primary key auto_increment,
+postXml varchar(1024),
+title varchar(20),
+notice boolean default false,
+userNo int,
+clubNo int
+);
+create table club(
+clubNo int primary key auto_increment,
+name varchar(40),
+category varchar(20),
+info varchar(256),
+area varchar(30),
+thumbnail varchar(30)
+);
+create table comment(
+commentNo int primary key auto_increment,
+postNo int,
+userNo int,
+contents varchar(256)
+);
+create table club_user(
+No int primary key auto_increment,
+userNo int,
+clubNo int,
+grade varchar(30)
+);
+create table culture(
+No int primary key auto_increment,
+userNo int,
+clubNo int,
+c_title varchar(50),
+c_content varchar(150),
+title varchar(75),
+place varchar(75),
+date varchar(75),
+imgurl varchar(100)
+);
